@@ -11,6 +11,9 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'heritage_travel_design.settings')
+os.environ.setdefault(
+    'DJANGO_SETTINGS_MODULE',
+    'monument_and_architecture_travel_guide.settings'
+)
 
 application = get_asgi_application()
