@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'heritage_travel_design.urls'
+ROOT_URLCONF = 'monument_and_architecture_travel_guide.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'heritage_travel_design.wsgi.application'
+WSGI_APPLICATION = 'monument_and_architecture_travel_guide.wsgi.application'
 
 
 # Database
