@@ -1,0 +1,131 @@
+{% load static %} {% include 'admin_navigation.html' %}
+
+
+
+<div class="container">
+  <div class="card-box">
+    <div class="title">✏️ Edit Monument Details</div>
+
+    <form
+      onsubmit="return checkpass();"
+      name="signup"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Place Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="pname"
+            value="{{data.p_name}}"
+            required
+          />
+        </div>
+
+        <div class="col-md-6">
+          <label>Place State:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="pstate"
+            value="{{data.p_state}}"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>City (Location):</label>
+          <input
+            type="text"
+            class="form-control"
+            name="pcity"
+            value="{{data.p_city}}"
+            required
+          />
+        </div>
+
+        <div class="col-md-6">
+          <label>Ticket Price:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tprice"
+            value="{{data.t_price}}"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3 align-items-end">
+        <div class="col-md-4">
+          <label>Ticket Status:</label>
+
+          {% if data.status == "Available" %}
+          <select class="form-control" name="status">
+            <option value="Available" selected>Available</option>
+            <option value="Not Available">Not Available</option>
+          </select>
+          {% endif %} {% if data.status == "Not Available" %}
+          <select class="form-control" name="status">
+            <option value="Available">Available</option>
+            <option value="Not Available" selected>Not Available</option>
+          </select>
+          {% endif %}
+        </div>
+
+        <div class="col-md-3 text-center">
+          <label>Current Image</label><br />
+          <img src="{{data.image.url}}" class="preview-img" />
+        </div>
+
+        <div class="col-md-5">
+          <label>Upload New Image:</label>
+          <input type="file" class="form-control" name="image" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>Additional Activities:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="activity"
+          value="{{data.activity}}"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label>History of Place:</label>
+        <textarea class="form-control" name="phistory" required>
+{{data.history}}</textarea
+        >
+      </div>
+
+      <div class="text-center">
+        <input
+          type="submit"
+          value="Update Monument"
+          class="btn btn-primary btn-submit"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert("Monument Detail Updated Successfully")
+  window.location = ('{% url 'view_room_admin' %}')
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+  alert("Something Wrong, Try Again...");
+</script>
+{% endif %}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+  </head>
+
+  <body>
+    <div class="container-fluid admin-banner-shell">
+      <div class="admin-banner row align-items-center">
+        <div class="col-lg-8 col-md-7 banner-left">
+          <div class="brand-panel">
+            <img src="{% static 'images/b2.jpg' %}" class="brand-img" />
+            <div>
+              <p class="eyebrow">Monument & Architecture Travel Guide</p>
+              <h1>Admin Command Center</h1>
+              <p class="banner-description">
+                Professional dashboard for managing monuments, bookings, and
+                user requests with speed and clarity.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-5 banner-right text-md-end text-center">
+          <div class="quick-status">
+            <span>Logged in as</span>
+            <strong>{{ request.user }}</strong>
+          </div>
+          <a href="{% url 'logout' %}" class="btn btn-outline-light btn-sm mt-3"
+            >Logout</a
+          >
+          <div class="banner-tags mt-4">
+            <span><i class="fas fa-check-circle"></i> Secure</span>
+            <span><i class="fas fa-tachometer-alt"></i> Fast</span>
+            <span><i class="fas fa-star"></i> Elegant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-custom admin-nav-pills">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'admin_home' %}">
+                <i class="fas fa-home"></i> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'view_user' %}">
+                <i class="fas fa-users"></i> Users
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add_room' %}">
+                <i class="fas fa-plus-circle"></i> Add Place
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'view_room_admin' %}">
+                <i class="fas fa-landmark"></i> Monuments
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'view_booking_admin' %}">
+                <i class="fas fa-calendar-check"></i> Bookings
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'view_contact' %}">
+                <i class="fas fa-envelope"></i> Contacts
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'change_password_admin' %}">
+                <i class="fas fa-key"></i> Password
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

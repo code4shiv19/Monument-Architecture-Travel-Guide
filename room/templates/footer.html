@@ -1,0 +1,41 @@
+{% load static %}
+
+<div class="footer" id="down">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h3>Contact Information</h3>
+        <p><i class="fa fa-map-marker-alt me-2"></i> Lucknow, Uttar Pradesh</p>
+        <p><i class="fa fa-envelope me-2"></i> shivtravel@gmail.com</p>
+        <p><i class="fa fa-mobile-alt me-2"></i> +91 8787220495</p>
+        <p><i class="fa fa-globe me-2"></i> www.ShivTravelsAndGuide.in</p>
+      </div>
+
+      <div class="col-md-4">
+        <h3>About Monument & Architecture Travel Guide</h3>
+        <p>
+          We help travelers discover important monuments, compare ticket
+          details, request bookings, and stay connected with the admin team from
+          one simple travel desk.
+        </p>
+      </div>
+
+      <div class="col-md-4">
+        <h3>Service Updates</h3>
+        <div class="news-box">
+          <div class="news-content">
+            <p>Curated monument listings are available for visitors.</p>
+            <p>Use verified contact details for all booking support.</p>
+            <p>Track your booking status from the traveler portal.</p>
+            <p>New destinations can be added from the admin console.</p>
+          </div>
+        </div>
+        <form method="post" class="mt-2">{% csrf_token %}</form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      Copyright 2026 Monument & Achitecture Travel Guide. All rights reserved.
+    </div>
+  </div>
+</div>

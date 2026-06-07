@@ -1,0 +1,54 @@
+/* contact_us.html styles */
+
+.page-shell,
+.container {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.main-card,
+.card-box,
+.login-card,
+.signup-card,
+.profile-card,
+.detail-card,
+.section-card {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.title,
+.section-title,
+.page-title,
+.place-title {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.title + .subtitle,
+.main-card > .subtitle {
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+@media (max-width: 575px) {
+  .main-card,
+  .card-box,
+  .login-card,
+  .signup-card,
+  .profile-card,
+  .detail-card {
+    padding: 1rem;
+  }
+}

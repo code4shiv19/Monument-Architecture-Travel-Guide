@@ -1,0 +1,112 @@
+{% include 'user_navigation.html' %}
+
+<script>
+  function room_price() {
+    a = document.signup.select_days.value;
+    b = document.signup.price.value;
+    d = document.signup.total_ticket.value;
+    c = a * b * d;
+    alert("Final price is " + c);
+    return true;
+  }
+</script>
+
+<div class="container">
+  <div class="main-card">
+    <div class="title">Confirm monument booking</div>
+    <p class="text-muted mb-4">Submit your visit request. The admin team will review and update your booking status.</p>
+
+    <form class="mt-3" onsubmit="return room_price();" name="signup" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="fname" value="{{user.first_name}}" />
+        </div>
+        <div class="col-md-6">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="lname" value="{{user.last_name}}" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>Email ID</label>
+        <input type="email" class="form-control" name="email" value="{{user.username}}" readonly required />
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Contact Number</label>
+          <input type="tel" class="form-control" name="contact" value="{{data2.mobile}}" pattern="[6-9]{1}[0-9]{9}" maxlength="10" required />
+        </div>
+        <div class="col-md-6">
+          <label>Alternate Mobile Number</label>
+          <input type="tel" class="form-control" name="contact2" placeholder="Optional" pattern="[6-9]{1}[0-9]{9}" maxlength="10" />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Booking Date</label>
+          <input type="date" class="form-control" name="booking_date" required />
+        </div>
+        <div class="col-md-6">
+          <label>Number of Days</label>
+          <select class="form-control" name="select_days">
+            <option value="1">1 day</option>
+            <option value="2">2 days</option>
+            <option value="3">3 days</option>
+            <option value="4">4 days</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Number of Tickets</label>
+          <select class="form-control" name="total_ticket">
+            <option value="1">1 Ticket</option>
+            <option value="2">2 Tickets</option>
+            <option value="3">3 Tickets</option>
+            <option value="4">4 Tickets</option>
+            <option value="5">5 Tickets</option>
+            <option value="6">6 Tickets</option>
+            <option value="7">7 Tickets</option>
+            <option value="8">8 Tickets</option>
+            <option value="9">9 Tickets</option>
+            <option value="10">10 Tickets</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label>Price Per Person</label>
+          <input type="text" class="form-control" readonly name="price" value="{{data.t_price}}" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>Full Address</label>
+        <input type="text" class="form-control" name="address" placeholder="Enter your full address" required />
+      </div>
+
+      <div class="text-center">
+        <input type="submit" value="Send Booking Request" class="btn btn-primary btn-submit" />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert("Booking Request has been Send")
+  window.location = ('{% url 'view_room_user' %}')
+</script>
+{% endif %} {% if error == "non" %}
+<script>
+  alert("Booking Request Already present in this date.")
+  window.location = ('{% url 'view_room_user' %}')
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+  alert("Something went wrong. Please try again.");
+</script>
+{% endif %} {% include 'footer.html' %}

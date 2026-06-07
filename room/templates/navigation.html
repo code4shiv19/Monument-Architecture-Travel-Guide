@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Monument & Achitecture Travel Guide</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+  </head>
+  <body>
+    <div class="top-header">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <img
+            src="{% static 'images/b1.jpg' %}"
+            class="brand-img me-3"
+            alt="Monument & Achitecture Travel Guide"
+          />
+          <div>
+            <div class="brand-title">Monument & Architecture Travel Guide</div>
+            <small class="text-white-50"
+              >Curated monument visits and guided booking support</small
+            >
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="https://web.whatsapp.com/" target="_blank" title="WhatsApp"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <a href="https://www.instagram.com/" target="_blank" title="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://www.facebook.com/" target="_blank" title="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+        <span class="welcome-text">Guest Portal</span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#down">About</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact_us' %}">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Create Account</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

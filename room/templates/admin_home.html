@@ -1,0 +1,96 @@
+{% include 'admin_navigation.html' %}
+{% load static %}
+
+<div class="container content-shell">
+  <div class="hero" style="background-image: url('{% static "images/gateofindia.jpg" %}'); background-size: cover; background-position: center;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-copy">
+        <p class="subtitle">Admin dashboard</p>
+        <h1>Manage destinations, bookings, and visitor support.</h1>
+        <p>
+          Keep monument listings updated, review booking requests, and respond to
+          visitor messages through a focused professional console.
+        </p>
+        <div class="hero-actions">
+          <a href="{% url 'add_room' %}" class="hero-btn"><i class="fas fa-plus-circle"></i> Add Destination</a>
+          <a href="{% url 'view_booking_admin' %}" class="btn btn-secondary"><i class="fas fa-calendar-check"></i> Review Bookings</a>
+        </div>
+      </div>
+
+      <div class="hero-stats-card">
+        <div class="status-pill">Admin Workspace</div>
+        <div class="metric">
+          <span><strong class="metric-value"><span class="countup" data-target="1256">1</span></strong><span class="metric-label">Registered users</span></span>
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="metric">
+          <span><strong class="metric-value"><span class="countup" data-target="324">1</span></strong><span class="metric-label">Booking records</span></span>
+          <i class="fas fa-ticket-alt"></i>
+        </div>
+        <div class="metric">
+          <span><strong class="metric-value"><span class="countup" data-target="18">1</span></strong><span class="metric-label">Contact requests</span></span>
+          <i class="fas fa-envelope"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-grid mt-4">
+    <div class="action-card">
+      <div>
+        <div class="card-icon"><i class="fas fa-landmark"></i></div>
+        <h3 class="mt-3">Manage Monuments</h3>
+        <p class="text-muted">Update places, pricing, availability, images, activities, and history.</p>
+      </div>
+      <a href="{% url 'view_room_admin' %}" class="btn btn-primary btn-sm">Open Monuments</a>
+    </div>
+
+    <div class="action-card">
+      <div>
+        <div class="card-icon"><i class="fas fa-user-check"></i></div>
+        <h3 class="mt-3">Registered Users</h3>
+        <p class="text-muted">Review traveler profiles and remove invalid user records when required.</p>
+      </div>
+      <a href="{% url 'view_user' %}" class="btn btn-primary btn-sm">View Users</a>
+    </div>
+
+    <div class="action-card">
+      <div>
+        <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+        <h3 class="mt-3">Booking Queue</h3>
+        <p class="text-muted">Confirm or cancel requests and keep visitor plans moving clearly.</p>
+      </div>
+      <a href="{% url 'view_booking_admin' %}" class="btn btn-primary btn-sm">View Bookings</a>
+    </div>
+
+    <div class="action-card">
+      <div>
+        <div class="card-icon"><i class="fas fa-envelope-open-text"></i></div>
+        <h3 class="mt-3">Visitor Messages</h3>
+        <p class="text-muted">Read support requests submitted from the public contact form.</p>
+      </div>
+      <a href="{% url 'view_contact' %}" class="btn btn-primary btn-sm">View Contacts</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const counters = document.querySelectorAll(".countup");
+    counters.forEach((counter) => {
+      const target = Number(counter.dataset.target) || 0;
+      const duration = 1200;
+      let startTime = null;
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        counter.textContent = Math.floor(progress * target).toLocaleString();
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    });
+  });
+</script>
+
+{% include 'footer.html' %}

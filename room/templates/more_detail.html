@@ -1,0 +1,32 @@
+{% include 'user_navigation.html' %}
+
+<div class="container">
+  <div class="detail-card">
+    <p class="eyebrow text-dark mb-2">Monument detail</p>
+    <div class="place-title">{{data.p_name}} - {{data.p_city}}, {{data.p_state}}</div>
+
+    <div class="row g-4 align-items-start">
+      <div class="col-md-6">
+        <img src="{{data.image.url}}" class="place-img" alt="{{data.p_name}}" />
+      </div>
+
+      <div class="col-md-6">
+        <p>
+          <span class="label-title">Additional Activities</span><br />
+          <span class="content-text">{{data.activity}}</span>
+        </p>
+
+        <p class="mb-2"><span class="label-title">History of Place</span></p>
+        <div class="history-box">{{data.history}}</div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="{% url 'view_room_user' %}" class="btn btn-secondary btn-back">
+        <i class="fa fa-arrow-left"></i> Back to Monuments
+      </a>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.html' %}

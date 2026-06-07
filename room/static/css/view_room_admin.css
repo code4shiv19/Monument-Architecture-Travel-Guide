@@ -1,0 +1,107 @@
+/* view_room_admin.html styles - Admin View Rooms/Monuments */
+
+.page-shell,
+.container {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.main-card,
+.card-box,
+.login-card,
+.signup-card,
+.profile-card,
+.detail-card,
+.section-card {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.title,
+.section-title,
+.page-title,
+.place-title {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.dashboard-grid,
+.monument-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.action-card,
+.card-custom,
+.place-card {
+  height: 100%;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 32px rgba(25, 35, 55, 0.08);
+  overflow: hidden;
+}
+
+.action-card {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-img,
+.place-img {
+  width: 100%;
+  height: 235px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.15rem;
+}
+
+.card-footer-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.search-box {
+  max-width: 480px;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .search-box,
+  .d-flex.justify-content-between.align-items-center.mb-3 {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .main-card,
+  .card-box,
+  .login-card,
+  .signup-card,
+  .profile-card,
+  .detail-card {
+    padding: 1rem;
+  }
+
+  .card-footer-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -1,0 +1,71 @@
+{% include 'user_navigation.html' %}
+
+
+
+<div class="container">
+  <div class="card-box">
+    <div class="title">📊 Your Booking Status</div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle text-center">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Booking Date</th>
+            <th>Tickets</th>
+            <th>Days</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for i in data %} {% if i.email == user.username %}
+          <tr>
+            <td>{{i.full_name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.contact}}<br />{{i.contact2}}</td>
+            <td>{{i.bookint_date}}</td>
+            <td>{{i.gender}} Person</td>
+            <td>{{i.days}}</td>
+            <td>₹{{i.price}}</td>
+
+            <!-- Status -->
+            <td>
+              {% if i.status == "Pending" %}
+              <span class="status-pending">Pending</span>
+              {% endif %} {% if i.status == "Confirm" %}
+              <span class="status-confirm">Confirmed</span>
+              {% endif %} {% if i.status == "Canceled" %}
+              <span class="status-cancel">Canceled</span>
+              {% endif %}
+            </td>
+
+            <!-- Action -->
+            <td>
+              <a
+                href="{% url 'cancel_booking' i.id %}"
+                onclick="return confirm('Are you sure?');"
+                class="btn btn-danger btn-sm"
+              >
+                Cancel
+              </a>
+            </td>
+          </tr>
+          {% endif %} {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if not data %}
+    <div class="text-center mt-4">
+      <h4 style="color: gray">No Booking Found Yet</h4>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% include 'footer.html' %}

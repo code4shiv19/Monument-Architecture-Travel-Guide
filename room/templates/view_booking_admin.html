@@ -1,0 +1,72 @@
+{% include 'admin_navigation.html' %}
+
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <p class="eyebrow text-dark mb-2">Operations</p>
+      <h3 class="page-title">Booking requests</h3>
+    </div>
+
+    <form method="POST" action="/searchh" class="search-box d-flex">
+      {% csrf_token %}
+      <input type="search" name="name" class="form-control me-2" placeholder="Search by email" />
+      <button class="btn btn-primary btn-sm">Search</button>
+      <a href="{% url 'view_booking_admin' %}" class="btn btn-secondary btn-sm ms-2">Reset</a>
+    </form>
+  </div>
+
+  <div class="card-box">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle text-center">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Date</th>
+            <th>Days</th>
+            <th>Tickets</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.full_name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.contact}}</td>
+            <td>{{i.bookint_date}}</td>
+            <td>{{i.days}}</td>
+            <td>{{i.gender}} Person</td>
+            <td>Rs. {{i.price}}</td>
+            <td>
+              {% if i.status == "Pending" %}
+              <a href="{% url 'change_status' i.id %}" class="badge-status pending">Pending</a>
+              {% elif i.status == "Confirm" %}
+              <a href="{% url 'change_status' i.id %}" class="badge-status confirm">Confirmed</a>
+              {% elif i.status == "Canceled" %}
+              <a href="{% url 'change_status' i.id %}" class="badge-status cancel">Canceled</a>
+              {% endif %}
+            </td>
+            <td>
+              <a href="{% url 'delete_booking' i.id %}" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if not data %}
+    <div class="text-center mt-4">
+      <h5 class="text-muted">No booking data found.</h5>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% include 'footer.html' %}

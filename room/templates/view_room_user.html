@@ -1,0 +1,47 @@
+{% load static %}
+{% include 'user_navigation.html' %}
+
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <p class="eyebrow text-dark mb-2">Destinations</p>
+      <h3 class="page-title">Explore monuments</h3>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    {% for i in data %}
+    <div class="col-md-4">
+      <div class="card card-custom">
+        <img src="{{i.image.url}}" class="card-img" alt="{{i.p_name}}" />
+        <div class="card-body">
+          <h5 class="fw-bold">{{i.p_name}}</h5>
+          <p class="text-muted mb-1">{{i.p_city}}, {{i.p_state}}</p>
+          <p class="mb-2"><strong>Rs. {{i.t_price}} / Person</strong></p>
+
+          {% if i.status == "Available" %}
+          <span class="status-badge available">Available</span>
+          {% else %}
+          <span class="status-badge not-available">Not Available</span>
+          {% endif %}
+
+          <div class="card-footer-links mt-3">
+            <a href="{% url 'more_detail' i.id %}">More Details</a>
+            {% if i.status == "Available" %}
+            <a href="{% url 'book_room' i.id %}" class="btn btn-primary btn-sm">Book Now</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% if not data %}
+    <div class="text-center mt-5">
+      <h5 class="text-muted">No monuments are available right now.</h5>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% include 'footer.html' %}

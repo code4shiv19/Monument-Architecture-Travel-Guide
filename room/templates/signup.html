@@ -1,0 +1,97 @@
+{% include 'navigation.html' %}
+
+<script>
+  function checkpass() {
+    if (document.signup.pwd.value != document.signup.cpwd.value) {
+      alert("Password Does Not Match");
+      document.signup.cpwd.focus();
+      return false;
+    }
+    return true;
+  }
+</script>
+
+<div class="container">
+  <div class="signup-card">
+    <div class="title">Create traveler account</div>
+    <p class="text-muted mb-4">Register once to request monument bookings and track your visit status.</p>
+
+    <form name="signup" method="post" enctype="multipart/form-data" onsubmit="return checkpass();">
+      {% csrf_token %}
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="fname" placeholder="Enter first name" required />
+        </div>
+        <div class="col-md-6">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="lname" placeholder="Enter last name" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>Email ID</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter email address" required />
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Contact Number</label>
+          <input type="tel" class="form-control" name="contact" pattern="[6-9]{1}[0-9]{9}" maxlength="10" oninvalid="this.setCustomValidity('Mobile number must start with 6, 7, 8, or 9 and contain exactly 10 digits.')" oninput="this.setCustomValidity('')" required />
+        </div>
+        <div class="col-md-6">
+          <label>Date of Birth</label>
+          <input type="date" class="form-control" name="dob" required />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Password</label>
+          <input type="password" class="form-control" name="pwd" required />
+        </div>
+        <div class="col-md-6">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" name="cpwd" required />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Gender</label>
+          <div class="radio-box">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" value="Male" required />
+              <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" value="Female" />
+              <label class="form-check-label">Female</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label>Profile Picture</label>
+          <input type="file" class="form-control" name="profile_pic" required />
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <input type="submit" value="Create Account" class="btn btn-primary btn-submit" />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert("Signup Successful")
+  window.location = ('{% url 'signup' %}')
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+  alert("Something went wrong. Please try again.");
+</script>
+{% endif %}
+
+{% include 'footer.html' %}

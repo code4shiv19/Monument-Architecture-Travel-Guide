@@ -1,0 +1,47 @@
+{% include 'admin_navigation.html' %}
+
+
+
+<div class="container">
+  <div class="card-box">
+    <div class="title">📋 Manage Booking Status</div>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <label>Customer Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="uname"
+        value="{{data.full_name}}"
+        readonly
+      />
+
+      <label>Status:</label>
+      <select class="form-control" name="rstatus">
+        <option value="Confirm">Confirm</option>
+        <option value="Canceled">Cancel</option>
+      </select>
+
+      <div class="text-center">
+        <input
+          type="submit"
+          value="Update Status"
+          class="btn btn-primary btn-submit"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert("Status Changed Successfully")
+  window.location = ('{% url 'view_booking_admin' %}')
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+  alert("Something went wrong, Try Again");
+</script>
+{% endif %}

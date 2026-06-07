@@ -1,0 +1,135 @@
+<!-- CSS REFERENCE GUIDE FOR ALL TEMPLATES -->
+<!-- Add these link tags to the <head> section of each template -->
+
+<!-- ========== NAVIGATION & FOOTER (All pages include these) ========== -->
+<!-- Navigation is in: admin_navigation.html or navigation.html or user_navigation.html -->
+<!-- Footer is in: footer.html -->
+<!-- Common styles (forms, buttons, tables, etc.): -->
+<link rel="stylesheet" href="{% static 'css/common.css' %}">
+
+<!-- ========== INDIVIDUAL TEMPLATE CSS FILES ========== -->
+
+<!-- For: add_room.html -->
+<link rel="stylesheet" href="{% static 'css/add_room.css' %}">
+
+<!-- For: edit_room.html -->
+<link rel="stylesheet" href="{% static 'css/edit_room.css' %}">
+
+<!-- For: book_room.html -->
+<link rel="stylesheet" href="{% static 'css/book_room.css' %}">
+
+<!-- For: change_password_admin.html -->
+<link rel="stylesheet" href="{% static 'css/change_password_admin.css' %}">
+
+<!-- For: change_password_user.html -->
+<link rel="stylesheet" href="{% static 'css/change_password_user.css' %}">
+
+<!-- For: change_status.html -->
+<link rel="stylesheet" href="{% static 'css/change_status.css' %}">
+
+<!-- For: contact_us.html -->
+<link rel="stylesheet" href="{% static 'css/contact_us.css' %}">
+
+<!-- For: edit_profile.html -->
+<link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
+
+<!-- For: index.html (Homepage with hero section) -->
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<!-- For: login.html -->
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<!-- For: more_detail.html (Monument details page) -->
+<link rel="stylesheet" href="{% static 'css/more_detail.css' %}">
+
+<!-- For: signup.html -->
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+<!-- For: admin_home.html (Admin dashboard) -->
+<link rel="stylesheet" href="{% static 'css/admin_home.css' %}">
+
+<!-- For: user_home.html (User home with monument list) -->
+<link rel="stylesheet" href="{% static 'css/user_home.css' %}">
+
+<!-- For: view_booking_admin.html (Admin view bookings) -->
+<link rel="stylesheet" href="{% static 'css/view_booking_admin.css' %}">
+
+<!-- For: user_booking.html (User view bookings) -->
+<link rel="stylesheet" href="{% static 'css/user_booking.css' %}">
+
+<!-- For: view_contact.html (Admin view contact messages) -->
+<link rel="stylesheet" href="{% static 'css/view_contact.css' %}">
+
+<!-- For: view_room_admin.html (Admin view monuments/rooms) -->
+<link rel="stylesheet" href="{% static 'css/view_room_admin.css' %}">
+
+<!-- For: view_room_user.html (User view monuments/rooms) -->
+<link rel="stylesheet" href="{% static 'css/view_room_user.css' %}">
+
+<!-- For: view_user.html (Admin view users) -->
+<link rel="stylesheet" href="{% static 'css/view_user.css' %}">
+
+<!-- ========== NAVIGATION FILES (Included in other templates) ========== -->
+<!-- These files are included via {% include %} - no CSS links needed in them -->
+<!-- Files: admin_navigation.html, navigation.html, user_navigation.html, footer.html -->
+
+<!-- ========== STRUCTURE EXAMPLE ========== -->
+<!--
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    
+    <!-- Bootstrap or other base CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Common styles for all pages -->
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="{% static 'css/add_room.css' %}">
+</head>
+-->
+
+<!-- ========== TIPS FOR CUSTOMIZATION ========== -->
+<!--
+1. common.css contains shared styles like:
+   - Root color variables
+   - Base body/html styles
+   - Navigation bar (.navbar-custom)
+   - Footer (.footer)
+   - Form elements (.form-control, .input-group, .form-check-wrap)
+   - Buttons (.btn-primary, .btn-secondary, etc.)
+   - Tables (.table, .table-responsive)
+   - Status badges (.status-badge, .available, .not-available, .pending)
+
+2. Each template has its own CSS file with styles specific to:
+   - Container and card styles
+   - Typography (title, subtitle, labels)
+   - Grid layouts (dashboard-grid, monument-grid)
+   - Card styles (action-card, place-card)
+   - Images and galleries
+   - Responsive breakpoints
+
+3. To modify styles for a specific page:
+   - Open the corresponding CSS file (e.g., add_room.css)
+   - Find the relevant selector/class
+   - Modify the CSS properties
+   - No need to search through the entire theme.css file!
+
+4. If you want to change a style used on multiple pages:
+   - Check if it's in common.css (shared across all pages)
+   - Or modify it in each individual template's CSS file
+
+5. Color variables are defined in common.css under :root:
+   --ink: #172033 (main text color)
+   --muted: #667085 (secondary text)
+   --line: #d9e1ec (borders)
+   --soft: #f5f7fb (light backgrounds)
+   --panel: #ffffff (card backgrounds)
+   --brand: #0f6b6e (primary color - teal)
+   --brand-dark: #0b4f52 (darker teal)
+   --accent: #b7791f (accent color - brown)
+   --danger: #c2410c (danger/error red)
+   --success: #16803c (success green)
+-->

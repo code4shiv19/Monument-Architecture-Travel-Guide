@@ -1,0 +1,73 @@
+/* more_detail.html styles - Monument Details Page */
+
+.page-shell,
+.container {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.detail-card {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.title,
+.section-title,
+.page-title,
+.place-title {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.detail-card .place-img {
+  height: 420px;
+  border-radius: 8px;
+}
+
+.label-title {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.content-text,
+.history-box {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.history-box {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+}
+
+.monument-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  padding: 2rem 1.25rem;
+  background: #fff;
+}
+
+.monument-gallery img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(25, 35, 55, 0.1);
+}
+
+@media (max-width: 575px) {
+  .detail-card {
+    padding: 1rem;
+  }
+}

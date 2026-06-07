@@ -1,0 +1,57 @@
+{% include 'navigation.html' %}
+
+<div class="container">
+  <div class="login-card">
+    <div class="title">Login to your travel desk</div>
+    <p class="text-muted mb-4">
+      Access bookings, monument details, and admin tools with your registered
+      email.
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label>Email or Username</label>
+        <input
+          type="text"
+          name="uname"
+          class="form-control"
+          placeholder="Enter your email or username"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label>Password</label>
+        <input
+          type="password"
+          name="pswd"
+          class="form-control"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <div class="text-center mt-4">
+        <input type="submit" value="Login" class="btn btn-primary btn-login" />
+        <input type="reset" value="Reset" class="btn btn-dark btn-reset" />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert("Admin Login Successfully")
+  window.location = ('{% url 'admin_home' %}')
+</script>
+{% endif %} {% if error == "not" %}
+<script>
+  alert("User Login Successfully")
+  window.location = ('{% url 'user_home' %}')
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+  alert("Something went wrong. Please try again.");
+</script>
+{% endif %} {% include 'footer.html' %}

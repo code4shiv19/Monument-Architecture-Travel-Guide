@@ -1,0 +1,141 @@
+{% include 'admin_navigation.html' %}
+
+<div class="container">
+  <div class="main-card">
+    <div class="title">➕ Add New Monument</div>
+    <div class="subtitle">
+      Complete the monument details, upload the cover image, and publish this
+      location instantly.
+    </div>
+    <hr />
+
+    <form
+      onsubmit="return checkpass();"
+      name="signup"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="input-group">
+            <label>Place Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="pname"
+              placeholder="Enter Name of Place"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="input-group">
+            <label>Place State:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="pstate"
+              placeholder="Enter State of Place"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="input-group">
+            <label>City (Location of place):</label>
+            <input
+              type="text"
+              class="form-control"
+              name="pcity"
+              placeholder="Location of place"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="input-group">
+            <label>Ticket Price:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="tprice"
+              placeholder="Price of Ticket per person"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="input-group">
+            <label>Ticket Status:</label>
+            <select class="form-control form-select" name="status">
+              <option value="Available">Available</option>
+              <option value="Not Available">Not Available</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="input-group">
+            <label>Upload Image:</label>
+            <input type="file" class="form-control" name="image" required />
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="input-group">
+          <label>Include Additional Activities:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="activity"
+            placeholder="Write all Additional activities here..."
+            required
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="input-group">
+          <label>History of Place:</label>
+          <textarea
+            class="form-control"
+            style="resize: none"
+            name="phistory"
+            placeholder="History of place"
+            required
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <input
+          type="submit"
+          value="Submit"
+          class="btn btn-primary btn-submit"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert("New Monument Added Successfully")
+  window.location = ('{% url 'add_room' %}')
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+  alert("Something Wrong, Try Again...");
+</script>
+{% endif %} {% include 'footer.html' %}
