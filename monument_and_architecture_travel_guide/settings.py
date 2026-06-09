@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '@6b_x3hq%uv4)=0-k&e8!e5)@jt-9@ct2w97e*$yy(e6-etkpd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "monument-architecture-travel-guide-3a1v.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 
 # Application definition
