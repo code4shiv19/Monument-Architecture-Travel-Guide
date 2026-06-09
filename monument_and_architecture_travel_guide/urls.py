@@ -52,4 +52,7 @@ urlpatterns = [
     path('more_detail/<int:id>',more_detail,name='more_detail'),
 
 
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+path('more_detail/<int:id>',more_detail,name='more_detail'),
+]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
