@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',   
     'room',
 ]
 
@@ -125,8 +127,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'  # sirf local development ke liye fallback
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('wyypwl5n'),
+    'API_KEY': os.environ.get('629757466543687'),
+    'API_SECRET': os.environ.get('gfFZZ2IXIsRHbOu1q2IrV9ycOuU'),
+}
+
+if os.environ.get('wyypwl5n'):
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = BASE_DIR / 'media'
