@@ -27,7 +27,7 @@ SECRET_KEY = '@6b_x3hq%uv4)=0-k&e8!e5)@jt-9@ct2w97e*$yy(e6-etkpd'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "monument-architecture-travel-guide-4kwr.onrender.com",
+    "monument-architecture-travel-guide-.onrender.com",
     "localhost",
     "127.0.0.1"
 ]
@@ -131,13 +131,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'  # sirf local development ke liye fallback
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('wyypwl5n'),
-    'API_KEY': os.environ.get('629757466543687'),
-    'API_SECRET': os.environ.get('gfFZZ2IXIsRHbOu1q2IrV9ycOuU'),
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
-if os.environ.get('wyypwl5n'):
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = BASE_DIR / 'media'
