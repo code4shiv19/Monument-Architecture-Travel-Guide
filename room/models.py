@@ -11,7 +11,7 @@ class Signup(models.Model):
         return self.user.username
 
 class Room(models.Model):
- p_name=models.CharField(max_length=100,null=True)
+    p_name=models.CharField(max_length=100,null=True)
     p_state=models.CharField(max_length=100,null=True)
     p_city=models.CharField(max_length=100,null=True)
     t_price=models.CharField(max_length=20,null=True)
@@ -39,4 +39,3 @@ class Contact(models.Model):
     c_email=models.CharField(max_length=20,null=True)
     c_mobile=models.CharField(max_length=20,null=True)
     c_purpose=models.CharField(max_length=20,null=True)
-
