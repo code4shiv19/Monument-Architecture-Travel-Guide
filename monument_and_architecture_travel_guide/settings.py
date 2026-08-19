@@ -27,7 +27,7 @@ SECRET_KEY = '@6b_x3hq%uv4)=0-k&e8!e5)@jt-9@ct2w97e*$yy(e6-etkpd'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "monument-architecture-travel-guide-4kwr.onrender.com",
+    "monument-architecture-travel-guide-4kwr.onrender.com ",
     "localhost",
     "127.0.0.1"
 ]

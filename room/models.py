@@ -11,14 +11,14 @@ class Signup(models.Model):
         return self.user.username
 
 class Room(models.Model):
-    p_name=models.CharField(max_length=10,null=True)
-    p_state=models.CharField(max_length=10,null=True)
-    p_city=models.CharField(max_length=10,null=True)
-    t_price=models.CharField(max_length=10,null=True)
-    status=models.CharField(max_length=10,null=True)
-    activity=models.CharField(max_length=10,null=True)
+ p_name=models.CharField(max_length=100,null=True)
+    p_state=models.CharField(max_length=100,null=True)
+    p_city=models.CharField(max_length=100,null=True)
+    t_price=models.CharField(max_length=20,null=True)
+    status=models.CharField(max_length=20,null=True)
+    activity=models.CharField(max_length=255,null=True)
     image=models.FileField(null=True)
-    history=models.CharField(max_length=90,null=True)
+    history=models.CharField(max_length=1000,null=True)
 
 
 class Booked(models.Model):
